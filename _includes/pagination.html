@@ -1,0 +1,41 @@
+{% assign page_group_factor = 5 %}
+{% assign first_page = paginator.page | minus: 1 | divided_by: page_group_factor | times: page_group_factor | plus: 1 %}
+{% assign last_page = first_page | plus: page_group_factor | minus: 1 %}
+{% if last_page > paginator.total_pages %}
+  {% assign last_page = paginator.total_pages %}
+{% endif %}
+    <nav class="paginator">
+      <ul>
+{% if paginator.previous_page %}
+        <li class="paginator__item">
+          <a href="{{ paginator.previous_page_path | relative_url }}" class="mdc-button paginator__button" aria-label="Previous page">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+          </a>
+        </li>
+{% else %}
+        <li class="paginator__item">
+          <button disabled class="mdc-button paginator__button" aria-label="Previous page">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+          </button>
+        </li>
+{% endif %}{% for p in (first_page..last_page) %}{% if paginator.page == p %}
+        <li class="paginator__item"><button disabled class="mdc-button paginator__button">{{ p }}</button></li>
+  {% elsif p == 1 %}
+        <li class="paginator__item"><a href="{{ site.url | absolute_url }}" class="mdc-button paginator__button">{{ p }}</a></li>
+  {% else %}
+        <li class="paginator__item"><a href="{{ site.paginate_path | replace: ':num', p | relative_url }}" class="mdc-button paginator__button">{{ p }}</a></li>
+  {% endif %}{% endfor %}{% if paginator.next_page %}
+        <li class="paginator__item">
+          <a href="{{ paginator.next_page_path | relative_url }}" class="mdc-button paginator__button" aria-label="Next page">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+          </a>
+        </li>
+{% else %}
+        <li class="paginator__item">
+          <button disabled class="mdc-button paginator__button" aria-label="Next page">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+          </button>
+        </li>
+{% endif %}
+      </ul>
+    </nav>

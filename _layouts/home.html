@@ -1,0 +1,10 @@
+---
+layout: default
+---
+  <main class="mdc-top-app-bar--fixed-adjust page-container">
+    <section class="post-list">
+      <h1 class="mdc-typography--headline3 post-list__title">Posts</h1>
+      <hr class="mdc-list-divider">
+{{ content }}
+    </section>{% if paginator %}{% include pagination.html %}{% endif %}
+  </main>

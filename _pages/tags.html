@@ -1,0 +1,70 @@
+---
+layout: default
+---
+  <main class="mdc-top-app-bar--fixed-adjust page-container">
+    <section class="post-list">
+      <h1 class="mdc-typography--headline3 post-list__title">Tags</h1>
+      <hr class="mdc-list-divider">
+      <div class="mdc-chip-set mdc-chip-set--filter post-list__subtitle">
+{% for tag in site.tags %}{% capture tag_name %}{{ tag | first }}{% endcapture %}
+        <div class="mdc-chip" tabindex="0" data-tag="{{ tag_name }}">
+          <div class="mdc-chip__checkmark" >
+            <svg class="mdc-chip__checkmark-svg" width="24" height="24" viewBox="-2 -3 30 30"><path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+          </div>
+          <div class="mdc-chip__text">{{ tag_name }}</div>
+        </div>
+{% endfor %}
+      </div>
+      <hr class="mdc-list-divider">
+      <div class="mdc-list-group">
+{% for tag in site.tags %}{% capture tag_name %}{{ tag | first }}{% endcapture %}
+        <div class="post-list-group" data-tag="{{ tag_name }}">
+          <h2 class="mdc-list-group__subheader mdc-typography--headline6">{{ tag_name }}</h2>
+          <ul class="mdc-list mdc-list--two-line" role="listbox" aria-orientation="vertical">
+  {% for post in site.tags[tag_name] %}
+            <li class="mdc-list-item">
+              <a href="{{ post.url }}">
+                <span class="mdc-list-item__graphic" role="presentation">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
+                </span>
+                <span class="mdc-list-item__text">
+                  <span class="mdc-list-item__primary-text">{{ post.title }}</span>
+                  <span class="mdc-list-item__secondary-text">{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 50 | escape }}</span>
+                </span>
+                <span class="mdc-list-item__meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%F %R' }}</time></span>
+              </a>
+            </li>
+  {% endfor %}
+          </ul>
+          <hr class="mdc-list-divider mdc-list-divider--inset">
+        </div>
+{% endfor %}
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash) {
+        let hash = window.location.hash.substring(1);
+        let targetChip = document.querySelector(`.mdc-chip[data-tag=${hash}]`);
+        let targetGroup = document.querySelector(`.post-list-group[data-tag=${hash}]`);
+        if (targetChip) {
+          targetChip.classList.add('mdc-chip--selected');
+          targetGroup.classList.add('post-list-group--show');
+        }
+      }
+
+      [].forEach.call(document.querySelectorAll('.mdc-chip'), (chip) => {
+        const targetText = chip.dataset.tag;
+        const targetGroup = document.querySelector(`.post-list-group[data-tag=${targetText}]`);
+        chip.addEventListener('click', function() {
+          if (this.classList.contains('mdc-chip--selected')) {
+            targetGroup.classList.remove('post-list-group--show');
+          } else {
+            targetGroup.classList.add('post-list-group--show');
+          }
+        });
+      });
+    });
+  </script>

@@ -1,0 +1,46 @@
+title: Hack IT
+email: 31337.cert@gmail.com
+description: 완벽보다는 완셩을 향해. B와 D사이의 C를 기록하는 개인 기술 블로그.
+baseurl: ""
+url: "https://cert1970.github.io"
+
+repository: cert1970/cert1970.github.io
+author: Dong-Young Kim
+
+thumbnail: /assets/images/profile.png
+lang: ko-KR
+
+sass:
+  sass_dir: _sass
+  # nested, compact, compressed, expanded
+  style: compressed
+
+# Where things are
+collections:
+  pages:
+    output: true
+    permalink: /:name
+
+# Handling Reading
+exclude: ["README.md", "write_post.sh", "Gemfile", "Gemfile.lock"]
+keep_files: ["assets"]
+encoding: "utf-8"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Outputting
+permalink: pretty
+paginate: 5
+paginate_path: /page/:num
+timezone: Asia/Seoul
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true

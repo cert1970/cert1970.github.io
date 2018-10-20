@@ -1,0 +1,21 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: home
+---
+{% for post in paginator.posts %}
+      <article class="mdc-card post-list-item">
+        <a href="{{ post.url | relative_url }}" class="mdc-card__primary-action post-list-item__primary">
+          <span class="mdc-typography--body2 post-list-item__subtitle">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%F' }}</time>
+          </span>
+          <h2 class="mdc-typography--headline4 post-list-item__title">{{ post.title }}</h2>
+          {% if post.description %}<span class="mdc-typography--body1 post-list-item__subtitle">{{ post.description }}</span>{% endif %}
+          <hr class="mdc-list-divider post-list-item__divider">
+          <span class="mdc-typography--body2 post-list-item__content">
+            {{ post.content | markdownify | strip_html | normalize_whitespace | truncatewords: 50 }}
+          </span>
+        </a>
+      </article>
+{% endfor %}
