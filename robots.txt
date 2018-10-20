@@ -1,0 +1,4 @@
+---
+---
+User-agent: *
+Sitemap: {{ page.url | absolute_url }}
