@@ -11,7 +11,7 @@
   {% assign meta_image = site.thumbnail | absolute_url %}
   {% assign meta_type = 'website' %}
 {% endif %}
-<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,6 +58,7 @@
   <meta property="article:modified_time" content="{{ page.date_modified | date_to_xmlschema }}">{% endif %}
   <meta property="article:author" content="Dong-Young Kim">
 {% endif %}
+
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ meta_title }}">
