@@ -4,8 +4,8 @@
   font-family: 'Noto Sans Mono KR';
   src: local(Noto Sans Mono CJK KR),
       local(NotoSansMonoCJKkr-Regular),
-      url(../fonts/noto-cjk/NotoSansMonoCJKkr-Regular.woff2) format('woff2'),
-      url(../fonts/noto-cjk/NotoSansMonoCJKkr-Regular.otf) format('opentype');
+      url(NotoSansMonoCJKkr-Regular.woff2) format('woff2'),
+      url(NotoSansMonoCJKkr-Regular.otf) format('opentype');
   font-weight: 400;
   font-style: normal;
 }
@@ -14,8 +14,8 @@
   font-family: 'Noto Sans Mono KR';
   src: local(Noto Sans Mono CJK KR),
       local(NotoSansMonoCJKkr-Bold),
-      url(../fonts/noto-cjk/NotoSansMonoCJKkr-Bold.woff2) format('woff2'),
-      url(../fonts/noto-cjk/NotoSansMonoCJKkr-Bold.otf) format('opentype');
+      url(NotoSansMonoCJKkr-Bold.woff2) format('woff2'),
+      url(NotoSansMonoCJKkr-Bold.otf) format('opentype');
   font-weight: 700;
   font-style: normal;
 }
