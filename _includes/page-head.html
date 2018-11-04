@@ -16,10 +16,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+  <meta name="theme-color" content="#212121">
+  <meta name="robots" content="index, follow">
+
   <title>{{ meta_title }}</title>
   <meta name="description" content="{{ meta_description }}">
-  <meta name="author" content="{{ site.author }}">
-  <meta name="theme-color" content="#212121">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127751815-1"></script>
@@ -31,11 +32,6 @@
     gtag('config', 'UA-127751815-1');
   </script>
   <meta name="naver-site-verification" content="589eca3900200f2d3b8efa5226c95a5077dc833c">
-
-  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
-  <link rel="alternate" type="application/atom+xml" href="{{ '/feed.xml' | relative_url }}" title="Feed">
-  <link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | relative_url }}" title="Sitemap">
 
   <!-- Schema.org: https://schema.org/ -->
   <meta itemprop="name" content="{{ site.title }}">
@@ -65,7 +61,7 @@
   <meta name="twitter:description" content="{{ meta_description }}">
   <meta name="twitter:image" content="{{ meta_image }}">
 
-  <!-- Icons for Apple devices -->
+  <!-- icons for Apple devices -->
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon-180x180.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="152x152" href="{{ '/assets/images/apple-touch-icon-152x152.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="144x144" href="{{ '/assets/images/apple-touch-icon-144x144.png' | relative_url }}">
@@ -75,8 +71,8 @@
   <link rel="apple-touch-icon" sizes="72x72" href="{{ '/assets/images/apple-touch-icon-72x72.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/images/apple-touch-icon-57x57.png' | relative_url }}">
 
-  <!--Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" sizes="16x16 24x24 32x32 48x48 64x64" href="{{ '/favicon.ico' | relative_url }}">
+  <!--favicon -->
+  <link rel="icon" type="image/x-icon" sizes="16x16 24x24 32x32 48x48 64x64" href="{{ '/favicon.ico' | relative_url }}">
   <link rel="icon" type="image/png" sizes="228x228" href="{{ '/assets/images/favicon-228.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="196x196" href="{{ '/assets/images/favicon-196.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/images/favicon-192.png' | relative_url }}">
@@ -86,7 +82,14 @@
   <link rel="icon" type="image/png" sizes="48x48" href="{{ '/assets/images/favicon-48.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32.png' | relative_url }}">
 
-  <!-- StyleSheet -->
+  <!-- link -->
+  <link rel="author" href="https://cert1970.github.io/portfolio/">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+  <link rel="alternate" href="{{ '/feed.xml' | relative_url }}" type="application/atom+xml" title="Feed">
+  <link rel="sitemap" href="{{ '/sitemap.xml' | relative_url }}" type="application/xml" title="Sitemap">
+
+  <!-- stylesheet -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&amp;subset=korean">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
