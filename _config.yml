@@ -2,7 +2,7 @@ title: Hack IT
 email: 31337.cert@gmail.com
 description: 완벽보다는 완셩을 향해. B와 D사이의 C를 기록하는 개인 기술 블로그.
 baseurl: ""
-url: "https://cert1970.github.io"
+url: https://cert1970.github.io
 
 repository: cert1970/cert1970.github.io
 author: Dong-Young Kim
@@ -22,7 +22,7 @@ collections:
     permalink: /:name
 
 # Handling Reading
-exclude: ["README.md", "write_post.sh", "Gemfile", "Gemfile.lock"]
+exclude: ["README.md", "write_post.sh", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json", "node_modules"]
 keep_files: ["assets"]
 encoding: "utf-8"
 

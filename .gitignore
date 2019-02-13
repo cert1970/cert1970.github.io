@@ -1,8 +1,9 @@
-# Jekyll
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 
-# Editor
+.cache
+node_modules/
+
 .vscode/
