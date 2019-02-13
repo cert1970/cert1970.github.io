@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}" itemscope itemtype="http://schema.org/Blog">
-{% include page-head.html %}
+{% include head.html %}
 <body class="mdc-typography">
-{% include page-header.html %}
+  {% include site-header.html %}
 
-{{ content }}
+  {{ content }}
 
-{% include page-footer.html %}
+  {% include site-footer.html %}
 
-{% include page-script.html %}
+  <script src="https://unpkg.com/simple-jekyll-search@1.7.2/dest/simple-jekyll-search.js" integrity="sha384-OIm80s5T//IdXazFrGWOn5/oDyyFqnUiCo4UWkLFs0XOzCb6oKmgpfP5Uj51tvir" crossorigin="anonymous"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/index.js' | relative_url }}"></script>
 </body>
 </html>

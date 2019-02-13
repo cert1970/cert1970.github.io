@@ -16,12 +16,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="theme-color" content="#212121">
-  <meta name="robots" content="index, follow">
-
   <title>{{ meta_title }}</title>
   <meta name="description" content="{{ meta_description }}">
-
+  <!-- Schema.org: https://schema.org/ -->
+  <meta itemprop="name" content="{{ site.title }}">
+  <meta itemprop="description" content="{{ site.description }}">
+  <meta itemprop="url" content="{{ site.url }}">
+  <meta itemprop="image" content="{{ site.thumbnail | absolute_url }}">
+  <meta itemprop="inLanguage" content="{{ page.lang | default: site.lang | default: 'en' }}">
+  <!-- Open Graph: http://ogp.me/ -->
+  <meta property="fb:admins" content="100006235810226">
+  <meta property="og:title" content="{{ meta_title }}">
+  <meta property="og:type" content="{{ meta_type }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="og:url" content="{{ meta_url }}">
+  <meta property="og:image" content="{{ meta_image }}">
+  <meta property="og:locale" content="{{ page.lang | default: site.lang | default: 'en' | replace: '-', '_' }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+{% if meta_type == 'article' %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {% if page.date_modified %}<meta property="article:modified_time" content="{{ page.date_modified | date_to_xmlschema }}">{% endif %}
+  <meta property="article:author" content="Dong-Young Kim">
+{% endif %}
+  <!-- Twitter Cards: https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards.html -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ meta_title }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
+  <meta name="twitter:image" content="{{ meta_image }}">
+{% if jekyll.environment == "production" %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127751815-1"></script>
   <script>
@@ -32,36 +54,7 @@
     gtag('config', 'UA-127751815-1');
   </script>
   <meta name="naver-site-verification" content="589eca3900200f2d3b8efa5226c95a5077dc833c">
-
-  <!-- Schema.org: https://schema.org/ -->
-  <meta itemprop="name" content="{{ site.title }}">
-  <meta itemprop="description" content="{{ site.description }}">
-  <meta itemprop="url" content="{{ site.url }}">
-  <meta itemprop="image" content="{{ site.thumbnail | absolute_url }}">
-  <meta itemprop="inLanguage" content="{{ page.lang | default: site.lang | default: 'en' }}">
-
-  <!-- Open Graph: http://ogp.me/ -->
-  <meta property="fb:app_id" content="2126321227585228">
-  <meta property="fb:admins" content="100006235810226">
-  <meta property="og:title" content="{{ meta_title }}">
-  <meta property="og:type" content="{{ meta_type }}">
-  <meta property="og:description" content="{{ meta_description }}">
-  <meta property="og:url" content="{{ meta_url }}">
-  <meta property="og:image" content="{{ meta_image }}">
-  <meta property="og:locale" content="{{ page.lang | default: site.lang | default: 'en' | replace: '-', '_' }}">
-  <meta property="og:site_name" content="{{ site.title }}">{% if meta_type == 'article' %}
-  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">{% if page.date_modified %}
-  <meta property="article:modified_time" content="{{ page.date_modified | date_to_xmlschema }}">{% endif %}
-  <meta property="article:author" content="Dong-Young Kim">
 {% endif %}
-
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ meta_title }}">
-  <meta name="twitter:description" content="{{ meta_description }}">
-  <meta name="twitter:image" content="{{ meta_image }}">
-
-  <!-- icons for Apple devices -->
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon-180x180.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="152x152" href="{{ '/assets/images/apple-touch-icon-152x152.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="144x144" href="{{ '/assets/images/apple-touch-icon-144x144.png' | relative_url }}">
@@ -71,7 +64,6 @@
   <link rel="apple-touch-icon" sizes="72x72" href="{{ '/assets/images/apple-touch-icon-72x72.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/images/apple-touch-icon-57x57.png' | relative_url }}">
 
-  <!--favicon -->
   <link rel="icon" type="image/x-icon" sizes="16x16 24x24 32x32 48x48 64x64" href="{{ '/favicon.ico' | relative_url }}">
   <link rel="icon" type="image/png" sizes="228x228" href="{{ '/assets/images/favicon-228.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="196x196" href="{{ '/assets/images/favicon-196.png' | relative_url }}">
@@ -82,22 +74,13 @@
   <link rel="icon" type="image/png" sizes="48x48" href="{{ '/assets/images/favicon-48.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32.png' | relative_url }}">
 
-  <!-- link -->
-  <link rel="author" href="https://cert1970.github.io/portfolio/">
+  <link rel="author" href="https://github.com/cert1970/">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
-  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
   <link rel="alternate" href="{{ '/feed.xml' | relative_url }}" type="application/atom+xml" title="Feed">
   <link rel="sitemap" href="{{ '/sitemap.xml' | relative_url }}" type="application/xml" title="Sitemap">
 
-  <!-- stylesheet -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&amp;subset=korean">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Nanum+Gothic+Coding:400,700|Noto+Sans+KR:300,400,500,700&amp;subset=korean">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="{{ '/assets/fonts/noto-cjk/noto-sans-mono-kr.css' | relative_url }}">
-
   <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.0/normalize.css" integrity="sha384-jTFzRHnGayPcZHkUx5hTuWbygQevlGFimHdpRHicjyJXGyyjcioudSScb7/YN0PE" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="{{ '/assets/lib/material-components-web/dist/material-components-web.min.css' | relative_url }}"> -->
-  <link rel="stylesheet" href="{{ '/assets/lib/material-components-web/material-components-web.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/highlight.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>

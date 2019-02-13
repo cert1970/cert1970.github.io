@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-  <main class="mdc-top-app-bar--fixed-adjust page-container">
+  <main class="mdc-top-app-bar--fixed-adjust site-container">
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
         <h1 class="mdc-typography--headline3 post__title" itemprop="headline">{{ page.title | escape }}</h1>
@@ -34,7 +34,8 @@ layout: default
   {% if page.categories != empty %}
         <div class="mdc-chip-set post-footer__item">
           <div class="post-footer__item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z"/></svg>Categories:
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+            Categories:
           </div>
     {% for category in page.categories %}
           <a href="/category#{{ category }}" class="mdc-chip post-footer__chip" tabindex="0">
@@ -45,7 +46,8 @@ layout: default
   {% endif %}{% if page.tags != empty %}
         <div class="mdc-chip-set post-footer__item">
           <div class="post-footer__item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16zM16 17H5V7h11l3.55 5L16 17z"/></svg>Tags:
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16zM16 17H5V7h11l3.55 5L16 17z"/></svg>
+            Tags:
           </div>
     {% for tag in page.tags %}
           <a href="/tags#{{ tag }}" class="mdc-chip post-footer__chip" tabindex="0">
@@ -73,18 +75,17 @@ layout: default
     </article>
 {% if page.comments %}
     <section class="post-comment">
+  {% if jekyll.environment == "production" %}
       <div class="mdc-elevation--z2 post-comment__item">
-{% include comment-facebook.html %}
+    {% include disqus.html %}
       </div>
-      <div class="mdc-elevation--z2 post-comment__item">
-{% include comment-disqus.html %}
-      </div>
+  {% endif %}
     </section>
 {% endif %}
   </main>
 
   <nav>
     <button class="mdc-fab post-fab" aria-label="Scroll to">
-      <svg class="mdc-fab__icon post-fab__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
+      <svg class="mdc-fab__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
     </button>
   </nav>
