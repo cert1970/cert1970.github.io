@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "cert1970.github.io",
+  "version": "0.1.0",
+  "description": "GitHub Pages jekyll blog",
+  "scripts": {
+    "build": "parcel build src/index.js --out-dir assets/js --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cert1970/cert1970.github.io.git"
+  },
+  "author": {
+    "name": "Dong-Young Kim",
+    "email": "31337.cert@gmail.com",
+    "url": "https://github.com/cert1970/"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "material-components-web": "^0.44.0",
+    "normalize.css": "^8.0.1",
+    "parcel-bundler": "^1.11.0",
+    "simple-jekyll-search": "^1.7.2"
+  }
+}
