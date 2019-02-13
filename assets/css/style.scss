@@ -1,42 +1,54 @@
 ---
 ---
-@charset "utf-8";
 
 @import "@material/theme/color-palette";
-@import "@material/animation/functions";
-@import "@material/ripple/mixins";
-@import "@material/top-app-bar/variables";
-@import "@material/theme/mixins";
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+$mdc-theme-primary: $material-color-grey-900;
+$mdc-theme-secondary: $material-color-deep-purple-500;
+$mdc-typography-font-family: "Roboto", "Noto Sans KR", sans-serif;
 
-  &-track {
-    border: 1px solid $material-color-grey-300;
-    border-radius: 10px;
-    box-shadow: inset 0 0 5px $material-color-grey-300;
-  }
-
-  &-thumb {
-    border-radius: 10px;
-    background-color: rgba($material-color-grey-400, .8);
-
-    &:hover {
-      background-color: $material-color-grey-400;
-    }
-
-    &:active {
-      background-color: $material-color-deep-purple-400;
-    }
-  }
-}
+@import "@material/button/mdc-button";
+@import "@material/card/mdc-card";
+// @import "@material/checkbox/mdc-checkbox";
+@import "@material/chips/mdc-chips";
+// @import "@material/dialog/mdc-dialog";
+// @import "@material/drawer/mdc-drawer";
+@import "@material/elevation/mdc-elevation";
+@import "@material/fab/mdc-fab";
+// @import "@material/floating-label/mdc-floating-label";
+// @import "@material/form-field/mdc-form-field";
+// @import "@material/grid-list/mdc-grid-list";
+// @import "@material/icon-button/mdc-icon-button";
+// @import "@material/icon-toggle/mdc-icon-toggle";
+// @import "@material/image-list/mdc-image-list";
+// @import "@material/layout-grid/mdc-layout-grid";
+// @import "@material/line-ripple/mdc-line-ripple";
+// @import "@material/linear-progress/mdc-linear-progress";
+@import "@material/list/mdc-list";
+// @import "@material/menu/mdc-menu";
+// @import "@material/menu-surface/mdc-menu-surface";
+// @import "@material/notched-outline/mdc-notched-outline";
+// @import "@material/radio/mdc-radio";
+@import "@material/ripple/mdc-ripple";
+// @import "@material/select/mdc-select";
+// @import "@material/slider/mdc-slider";
+// @import "@material/snackbar/mdc-snackbar";
+// @import "@material/switch/mdc-switch";
+// @import "@material/tab/mdc-tab";
+// @import "@material/tab-bar/mdc-tab-bar";
+// @import "@material/tab-indicator/mdc-tab-indicator";
+// @import "@material/tab-scroller/mdc-tab-scroller";
+// @import "@material/textfield/mdc-text-field";
+@import "@material/theme/mdc-theme";
+// @import "@material/toolbar/mdc-toolbar";
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/typography/mdc-typography";
 
 html {
-  font-size: 17px;
+  font-size: 16px;
 
   @media (max-width: 599px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -52,417 +64,8 @@ main {
   flex: 1 0 auto;
 }
 
-// NOTE: page
-
-.page {
-
-  //  NOTE: page-container
-
-  &-container {
-    max-width: 960px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-// NOTE: page-header
-
-  &-header {
-
-    &-tab {
-      flex: initial;
-      padding: 0 12px;
-
-      .mdc-tab__text-label {
-        opacity: 1;
-        @include mdc-theme-prop(color, on-primary);
-      }
-
-      .mdc-tab__ripple {
-        @include mdc-states(on-primary);
-      }
-
-      @media (max-width: 599px) {
-        display: none;
-      }
-    }
-
-    &-icon {
-      display: none;
-
-      @media (max-width: 599px) {
-        display: unset;
-      }
-    }
-  }
-
-  // NOTE: page-footer
-
-  &-footer {
-    margin-top: 2rem;
-    padding: 2rem 1rem;
-    @include mdc-theme-prop(background-color, primary);
-    @include mdc-theme-prop(color, on-primary);
-
-    &__content {
-      color: rgba(mdc-theme-prop-value(on-primary), mdc-theme-text-emphasis(disabled));
-      text-align: center;
-
-      a {
-			  border-bottom: 1px dotted;
-        color: unset;
-        text-decoration: none;
-        transition: mdc-animation-enter(border, 100ms), mdc-animation-enter(color, 100ms);
-      }
-
-      a:hover {
-        border-bottom-color: transparent;
-        color: rgba(mdc-theme-prop-value(on-primary), mdc-theme-text-emphasis(high));
-      }
-    }
-  }
-
-  // NOTE: page-search-form
-
-  &-search-form {
-    display: inline-flex;
-    flex: 1 1 auto;
-    justify-content: space-between;
-    align-items: center;
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    @include mdc-theme-prop(background-color, background);
-
-    &__input {
-      width: 100%;
-      height: 100%;
-      padding: 0 0 0 24px;
-      border: 0;
-      outline: none;
-      // font-family: "Noto Sans KR", sans-serif;
-    }
-
-    &__result {
-      position: absolute;
-      top: $mdc-top-app-bar-row-height;
-      width: 100%;
-      padding: 0;
-      @include mdc-theme-prop(background-color, background);
-
-      @media (max-width: 599px) {
-        top: $mdc-top-app-bar-mobile-row-height;
-      }
-    }
-
-    &__close {
-      min-width: $mdc-top-app-bar-icon-size + $mdc-top-app-bar-icon-padding * 2;
-      width: $mdc-top-app-bar-icon-size + $mdc-top-app-bar-icon-padding * 2;
-      // height: $mdc-top-app-bar-icon-size + $mdc-top-app-bar-icon-padding * 2;
-      height: $mdc-top-app-bar-row-height;
-      margin: 0 12px;
-      padding: 0;
-
-      @include mdc-theme-prop(fill, primary);
-      @include mdc-ripple-surface;
-      @include mdc-ripple-radius-bounded(24px);
-      @include mdc-states(black);
-
-      transform: rotate(-90deg);
-    }
-
-    &--open {
-      opacity: 1;
-      z-index: 10;
-      transition: mdc-animation-enter(opacity, 150ms);
-
-      .page-search-form {
-
-        &__close {
-          transform: rotate(0);
-          transition: mdc-animation-enter(transform, 200ms);
-        }
-      }
-    }
-  }
-}
-
-// NOTE: post-list
-
-.post-list {
-  padding: 0 1rem;
-
-  &__title {
-    @include mdc-theme-prop(color, secondary);
-    text-align: center;
-  }
-
-  &__subtitle {
-    margin: 1rem 0;
-  }
-}
-
-// NOTE: post-list-group
-
-.post-list-group {
-  display: none;
-
-  @keyframes fade-in {
-    0% { opacity: 0; }
-    100% {opacity: 1; }
-  }
-
-  &--show {
-    display: block;
-    animation: mdc-animation-enter(fade-in, 300ms);
-  }
-
-  .mdc-list-item__meta {
-    flex-shrink: 0;
-  }
-}
-
-// NOTE: post-list-item
-
-.post-list-item {
-  margin: 2rem 0;
-
-  &__primary {
-    padding: 1.5rem 2rem;
-  }
-
-  &__title {
-    margin: .1rem 0 .2rem;
-    @include mdc-theme-prop(color, secondary);
-  }
-
-  &__subtitle {
-    @include mdc-theme-prop(color, text-primary-on-background);
-  }
-
-  &__divider {
-    width: 40%;
-    margin: .4rem 0;
-  }
-
-  &__content {
-    @include mdc-theme-prop(color, text-secondary-on-background);
-  }
-}
-
-// NOTE: post
-
-.post {
-  padding: 0 1rem;
-
-  &__title {
-    margin: 1em 0 0;
-    @include mdc-theme-prop(color, secondary);
-    text-align: center;
-  }
-
-  &__subtitle {
-    margin: 1rem 0;
-    padding: 0;
-    @include mdc-theme-prop(color, text-secondary-on-background);
-    text-align: center;
-
-    &-meta {
-      display: inline-flex;
-      align-items: center;
-      margin: .2rem;
-      @include mdc-theme-prop(fill, text-secondary-on-background);
-
-      > svg {
-        padding-right: 2px;
-      }
-    }
-  }
-}
-
-// NOTE: post-footer
-
-.post-footer {
-  margin: .5rem 0;
-
-  &__item {
-    display: flex;
-    align-items: center;
-  }
-
-  &__chip {
-    border-radius: 4px;
-  }
-}
-
-// NOTE: post-comment
-
-.post-comment {
-  margin: 2rem 0;
-  padding: 0 1rem;
-
-  &__item {
-    margin-bottom: 1rem;
-    padding: .5rem;
-  }
-
-  // Fix for Facebook Comments Plugin width bug on chrome browser
-  .fb-comments iframe {
-    width: 100% !important;
-  }
-}
-
-// NOTE:  post-fab
-
-.post-fab {
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  text-decoration: none;
-
-  @media (min-width: 1024px) {
-    right: 1.5rem;
-    bottom: 1.5rem;
-  }
-
-  &--rotated {
-    transform: rotate(180deg);
-  }
-}
-
-//- NOTE: paginator
-
-.paginator {
-  text-align: center;
-
-  &__item {
-    display: inline-block;
-    list-style: none;
-  }
-
-  &__button {
-    min-width: 40px;
-  }
-}
-
-// NOTE: post__content
-// separate from above `post` block
-
-.post__content {
-  margin-top: 1.5rem;
-
-  a {
-    border-bottom: .15rem solid transparent;
-    @include mdc-theme-prop(color, secondary);
-    text-decoration: none;
-    transition: mdc-animation-enter(border, 100ms);
-  }
-
-  a:hover {
-    border-bottom-color: unset;
-  }
-
-  blockquote {
-    margin: 0;
-    padding: 0 1rem;
-    border-left: .25rem solid $material-color-deep-purple-200;
-    @include mdc-theme-prop(color, text-secondary-on-background);
-  }
-
-  code {
-    font-family: 'Noto Sans Mono KR', monospace;
-  }
-
-  em {
-    @include mdc-theme-prop(color, text-secondary-on-background);
-  }
-
-  figure {
-    margin: 0;
-  }
-
-  $sizes: (2rem, 1.8rem, 1.6rem, 1.4rem, 1.2rem, 1rem);
-  @each $size in $sizes {
-    $i: index($sizes, $size);
-    h#{$i} {
-      margin: $size 0 .5rem;
-      font-size: $size;
-      line-height: $size + .125rem;
-    }
-  }
-
-  hr {
-    margin: 1rem 0;
-    border-color: $material-color-grey-50;
-  }
-
-  pre {
-    padding: 1rem;
-  }
-
-  table {
-    margin: 1rem auto;
-    border-collapse: collapse;
-
-    tr:nth-child(even) {
-      @include mdc-theme-prop(background-color, $material-color-grey-100);
-    }
-
-    th,
-    td {
-      padding: .5rem 1rem;
-    }
-
-    th {
-      border: 1px solid $material-color-grey-200;
-      @include mdc-theme-prop(background-color, secondary);
-      @include mdc-theme-prop(color, on-secondary);
-    }
-
-    td {
-      border: 1px solid $material-color-grey-200;
-    }
-  }
-
-  .highlighter-rouge {
-    background-color: $material-color-deep-purple-50;
-    color: $material-color-deep-purple-500
-  }
-
-  .footnotes {
-    margin-top: 2rem;
-    color: gray;
-  }
-}
-
-// NOTE: mdc-list-item
-
-.mdc-list-item {
-
-  > a {
-    display: inline-flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    outline: none;
-
-    &:link {
-      color: unset;
-      text-decoration: none;
-    }
-  }
-
-  &__graphic {
-    width: 40px;
-    height: 40px;
-    margin-right:16px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, .2);
-    color: rgba(255, 255, 255, .8);
-  }
-}
-
-.mdc-button:disabled {
-  @include mdc-theme-prop(fill, text-disabled-on-background);
-}
+@import "site";
+@import "page";
+@import "post";
+@import "pagination";
+@import "highlight";

@@ -1,0 +1,16 @@
+.pagination {
+  text-align: center;
+
+  &__item {
+    display: inline-block;
+    list-style: none;
+  }
+
+  &__button {
+    min-width: 40px;
+
+    &:disabled {
+      @include mdc-theme-prop(fill, text-disabled-on-background);
+    }
+  }
+}

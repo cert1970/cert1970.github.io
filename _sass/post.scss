@@ -1,0 +1,214 @@
+@import "@material/animation/functions";
+@import "@material/theme/color-palette";
+@import "@material/theme/mixins";
+@import "@material/typography/mixins";
+
+.post {
+  padding: 0 1rem;
+
+  &__title {
+    margin: 1em 0 0;
+    @include mdc-theme-prop(color, secondary);
+    text-align: center;
+  }
+
+  &__subtitle {
+    margin: 1rem 0;
+    padding: 0;
+    @include mdc-theme-prop(color, text-secondary-on-background);
+    text-align: center;
+
+    &-meta {
+      display: inline-flex;
+      align-items: center;
+      margin: 0.2rem;
+      @include mdc-theme-prop(fill, text-secondary-on-background);
+
+      > svg {
+        padding-right: 2px;
+      }
+    }
+  }
+
+  &__content {
+    margin-top: 1.5rem;
+
+    h1 {
+      @include mdc-typography(headline3);
+    }
+
+    h2 {
+      @include mdc-typography(headline4);
+    }
+
+    h3 {
+      @include mdc-typography(headline5);
+    }
+
+    h4 {
+      @include mdc-typography(headline6);
+    }
+
+    h5 {
+      @include mdc-typography(subtitle1);
+    }
+
+    h6 {
+      @include mdc-typography(subtitle2);
+    }
+
+    a {
+      border-bottom: 0.15rem solid transparent;
+      @include mdc-theme-prop(color, secondary);
+      text-decoration: none;
+      transition: mdc-animation-enter(border, 100ms);
+
+      &:hover {
+        border-bottom-color: unset;
+      }
+    }
+
+    blockquote {
+      margin: 0;
+      padding: 0 1rem;
+      border-left: 0.25rem solid $material-color-deep-purple-200;
+      @include mdc-theme-prop(color, text-secondary-on-background);
+    }
+
+    code {
+      font-family: "Nanum Gothic Coding", monospace;
+    }
+
+    em {
+      @include mdc-theme-prop(color, text-secondary-on-background);
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    hr {
+      margin: 1rem 0;
+      border-color: $material-color-grey-50;
+    }
+
+    pre {
+      padding: 1rem;
+    }
+
+    table:not(.rouge-table) {
+      margin: 1rem auto;
+      border-collapse: collapse;
+
+      tr:nth-child(even) {
+        @include mdc-theme-prop(background-color, $material-color-grey-100);
+      }
+
+      th,
+      td {
+        padding: 0.5rem 1rem;
+      }
+
+      th {
+        border: 1px solid $material-color-grey-200;
+        @include mdc-theme-prop(background-color, secondary);
+        @include mdc-theme-prop(color, on-secondary);
+      }
+
+      td {
+        border: 1px solid $material-color-grey-200;
+      }
+    }
+
+    .highlighter-rouge {
+      background-color: $material-color-deep-purple-50;
+      color: $material-color-deep-purple-500;
+    }
+
+    .rouge-table {
+      margin: 0;
+      border: 0;
+      border-collapse: collapse;
+
+      .lineno {
+        margin: 0;
+      }
+
+      .code,
+      .code pre {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .footnotes {
+      margin-top: 2rem;
+      color: gray;
+    }
+  }
+
+  &-comment {
+    margin: 2rem 0;
+    padding: 0 1rem;
+
+    &__item {
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+    }
+  }
+
+  &-footer {
+    margin: 0.5rem 0;
+
+    &__item {
+      display: flex;
+      align-items: center;
+    }
+
+    &__chip {
+      border-radius: 4px;
+    }
+  }
+
+  &-card {
+    margin: 2rem 0;
+
+    &__primary {
+      padding: 1.5rem 2rem;
+    }
+
+    &__title {
+      margin: 0.1rem 0 0.2rem;
+      @include mdc-theme-prop(color, secondary);
+    }
+
+    &__subtitle {
+      @include mdc-theme-prop(color, text-primary-on-background);
+    }
+
+    &__divider {
+      width: 40%;
+      margin: 0.4rem 0;
+    }
+
+    &__content {
+      @include mdc-theme-prop(color, text-secondary-on-background);
+    }
+  }
+
+  &-fab {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    text-decoration: none;
+
+    @media (min-width: 1024px) {
+      right: 1.5rem;
+      bottom: 1.5rem;
+    }
+
+    &__icon--rotated {
+      transform: rotate(180deg);
+    }
+  }
+}
