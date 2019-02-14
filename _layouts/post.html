@@ -72,6 +72,9 @@ layout: default
     <section>
     {% if jekyll.environment == "production" %}
       <div class="mdc-elevation--z2 post-comment">
+        {% include utterances.html %}
+      </div>
+      <div class="mdc-elevation--z2 post-comment">
         {% include disqus.html %}
       </div>
     {% else %}
