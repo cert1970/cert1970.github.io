@@ -1,6 +1,10 @@
 .pagination {
   text-align: center;
 
+  &__list {
+    margin: 0;
+  }
+
   &__item {
     display: inline-block;
     list-style: none;

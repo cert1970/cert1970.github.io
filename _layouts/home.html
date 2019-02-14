@@ -5,6 +5,9 @@ layout: default
     <section class="page">
       <h1 class="mdc-typography--headline3 page__title">Posts</h1>
       <hr class="mdc-list-divider">
-{{ content }}
-    </section>{% if paginator %}{% include pagination.html %}{% endif %}
+        {{ content }}
+    </section>
   </main>
+  {% if paginator %}
+    {% include pagination.html %}
+  {% endif %}

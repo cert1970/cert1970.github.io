@@ -5,7 +5,7 @@
   {% assign last_page = paginator.total_pages %}
 {% endif %}
     <nav class="pagination">
-      <ul>
+      <ul class="pagination__list">
 {% if paginator.previous_page %}
         <li class="pagination__item">
           <a href="{{ paginator.previous_page_path | relative_url }}" class="mdc-button pagination__button" aria-label="Previous page">
