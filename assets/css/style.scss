@@ -45,10 +45,10 @@ $mdc-typography-font-family: "Roboto", "Noto Sans KR", sans-serif;
 @import "@material/typography/mdc-typography";
 
 html {
-  font-size: 16px;
+  font-size: 18px;
 
   @media (max-width: 599px) {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
