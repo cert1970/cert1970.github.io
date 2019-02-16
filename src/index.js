@@ -11,7 +11,7 @@ const ripples = document.querySelectorAll(".mdc-card__primary-action, .mdc-fab")
   return new MDCRipple(ripple);
 })
 
-const chips = document.querySelectorAll("mdc-chip-set");
+const chips = document.querySelectorAll(".mdc-chip-set");
 for (const chip of chips) {
   MDCChipSet.attachTo(chip);
 }
