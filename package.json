@@ -17,9 +17,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "material-components-web": "^0.44.0",
-    "normalize.css": "^8.0.1",
-    "parcel-bundler": "^1.11.0",
-    "simple-jekyll-search": "^1.7.2"
+    "material-components-web": "^0.44.0"
   }
 }
