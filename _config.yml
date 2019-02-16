@@ -8,12 +8,12 @@ repository: cert1970/cert1970.github.io
 author: Dong-Young Kim
 
 thumbnail: /assets/images/profile.png
-lang: ko-KR
+lang: ko
 
 sass:
   sass_dir: _sass
   # nested, compact, compressed, expanded
-  style: compressed
+  style: nested
 
 # Where things are
 collections:
@@ -22,9 +22,9 @@ collections:
     permalink: /:name
 
 # Handling Reading
-exclude: ["README.md", "write_post.sh", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json", "node_modules"]
-keep_files: ["assets"]
-encoding: "utf-8"
+exclude: [README.md, write_post.sh, Gemfile, Gemfile.lock, package.json, package-lock.json, node_modules]
+keep_files: [assets]
+encoding: utf-8
 
 # Plugins
 plugins:

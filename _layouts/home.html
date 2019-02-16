@@ -1,13 +1,14 @@
 ---
 layout: default
 ---
-  <main class="mdc-top-app-bar--fixed-adjust site-container">
-    <section class="page">
-      <h1 class="mdc-typography--headline3 page__title">Posts</h1>
-      <hr class="mdc-list-divider">
-        {{ content }}
-    </section>
-  </main>
-  {% if paginator %}
-    {% include pagination.html %}
-  {% endif %}
+    <main class="mdc-top-app-bar--fixed-adjust site-container">
+      <section class="post">
+        <header class="post-header">
+          <h1 class="mdc-typography--headline3 post-header__title">Posts</h1>
+        </header>
+{{ content }}
+      </section>
+    </main>
+    {% if paginator %}
+      {% include pagination.html %}
+    {% endif %}

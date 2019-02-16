@@ -17,8 +17,9 @@ $divider-color: if(
     border-bottom: 1px solid $divider-color;
 
     &__title {
-      @extend .page__title;
       margin: 0;
+      @include mdc-theme-prop(color, secondary);
+      text-align: center;
     }
 
     &__content {

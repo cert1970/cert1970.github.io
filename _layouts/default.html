@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}" itemscope itemtype="http://schema.org/Blog">
-{% include head.html %}
-<body class="mdc-typography">
-  {% include site-header.html %}
+  {% include head.html %}
 
-  {{ content }}
+  <body class="mdc-typography">
+    {% include site-header.html %}
 
-  {% include site-footer.html %}
+{{ content }}
 
-  <script src="https://unpkg.com/simple-jekyll-search@1.7.2/dest/simple-jekyll-search.js" integrity="sha384-OIm80s5T//IdXazFrGWOn5/oDyyFqnUiCo4UWkLFs0XOzCb6oKmgpfP5Uj51tvir" crossorigin="anonymous"></script>
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/index.js' | relative_url }}"></script>
-</body>
+    {% include site-footer.html %}
+
+    <script
+      src="https://unpkg.com/simple-jekyll-search@1.7.2/dest/simple-jekyll-search.js"
+      integrity="sha384-OIm80s5T//IdXazFrGWOn5/oDyyFqnUiCo4UWkLFs0XOzCb6oKmgpfP5Uj51tvir"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/index.js' | relative_url }}"></script>
+  </body>
 </html>

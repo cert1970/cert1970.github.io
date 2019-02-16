@@ -1,75 +1,79 @@
 ---
 layout: default
 ---
-  <main class="mdc-top-app-bar--fixed-adjust site-container">
-    <section class="post">
-      <header class="post-header">
-        <h1 class="mdc-typography--headline3 post-header__title">Tags</h1>
-      </header>
-      <section class="post-header">
-        <div class="mdc-chip-set mdc-chip-set--filter">
-        {% for tag in site.tags %}{% capture tag_name %}{{ tag | first }}{% endcapture %}
-          <div class="mdc-chip" tabindex="0" data-id="{{ tag_name }}">
-            <div class="mdc-chip__checkmark" >
-              <svg class="mdc-chip__checkmark-svg" width="24" height="24" viewBox="-2 -3 30 30"><path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+    <main class="mdc-top-app-bar--fixed-adjust site-container">
+      <section class="post">
+        <!-- Page header -->
+        <header class="post-header">
+          <h1 class="mdc-typography--headline3 post-header__title">Tags</h1>
+        </header>
+
+        <section class="post-header">
+          <div class="mdc-chip-set mdc-chip-set--filter">
+            {% for tag in site.tags %}{% capture tag_name %}{{ tag | first }}{% endcapture %}
+            <div class="mdc-chip" tabindex="0" data-id="{{ tag_name }}">
+              <div class="mdc-chip__checkmark" >
+                <svg class="mdc-chip__checkmark-svg" width="24" height="24" viewBox="-2 -3 30 30"><path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+              </div>
+              <div class="mdc-chip__text">{{ tag_name }}</div>
             </div>
-            <div class="mdc-chip__text">{{ tag_name }}</div>
+            {% endfor %}
           </div>
-        {% endfor %}
-        </div>
-      </section>
-      <section class="mdc-list-group">
-      {% for tag in site.tags %}{% capture tag_name %}{{ tag | first }}{% endcapture %}
-        <div class="post-list" data-id="{{ tag_name }}">
-          <h2 class="mdc-list-group__subheader mdc-typography--headline6">{{ tag_name }}</h2>
-          <ul class="mdc-list mdc-list--two-line" role="listbox" aria-orientation="vertical">
-          {% for post in site.tags[tag_name] %}
-            <li class="mdc-list-item post-list-item">
-              <a href="{{ post.url }}" class="post-list-item__link">
-                <span class="mdc-list-item__graphic post-list-item__graphic" role="presentation">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
-                </span>
-                <span class="mdc-list-item__text">
-                  <span class="mdc-list-item__primary-text">{{ post.title }}</span>
-                  <span class="mdc-list-item__secondary-text">{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 50 | escape }}</span>
-                </span>
-                <span class="mdc-list-item__meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%F %R" }}</time></span>
-              </a>
-            </li>
+        </section>
+
+        <!-- Page content -->
+        <section class="mdc-list-group">
+          {% for tag in site.tags %}{% capture tag_name %}{{ tag | first }}{% endcapture %}
+          <div class="post-list" data-id="{{ tag_name }}">
+            <h2 class="mdc-list-group__subheader mdc-typography--headline6">{{ tag_name }}</h2>
+            <ul class="mdc-list mdc-list--two-line" role="listbox" aria-orientation="vertical">
+              {% for post in site.tags[tag_name] %}
+              <li class="mdc-list-item post-list-item">
+                <a href="{{ post.url }}" class="post-list-item__link">
+                  <span class="mdc-list-item__graphic post-list-item__graphic" role="presentation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
+                  </span>
+                  <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">{{ post.title }}</span>
+                    <span class="mdc-list-item__secondary-text">{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 50 | escape }}</span>
+                  </span>
+                  <span class="mdc-list-item__meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%F %R" }}</time></span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+            <hr class="mdc-list-divider mdc-list-divider--inset">
+          </div>
           {% endfor %}
-          </ul>
-          <hr class="mdc-list-divider mdc-list-divider--inset">
-        </div>
-      {% endfor %}
+        </section>
       </section>
-    </section>
-  </main>
+    </main>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      [].forEach.call(document.querySelectorAll(".mdc-chip"), (chip) => {
-        const list = document.querySelector(`.post-list[data-id=${chip.dataset.id}]`);
-        chip.addEventListener("click", function() {
-          if (this.classList.contains("mdc-chip--selected")) {
-            list.classList.add("post-list--show");
-          } else {
-            list.classList.remove("post-list--show");
-          }
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        [].forEach.call(document.querySelectorAll(".mdc-chip"), (chip) => {
+          const list = document.querySelector(`.post-list[data-id=${chip.dataset.id}]`);
+          chip.addEventListener("click", function() {
+            if (this.classList.contains("mdc-chip--selected")) {
+              list.classList.add("post-list--show");
+            } else {
+              list.classList.remove("post-list--show");
+            }
+          });
         });
-      });
 
-      const changeHash = function() {
-        if (!location.hash) return;
-        const hash = location.hash.substring(1);
-        history.replaceState(null, "Tags", "/tags");
-        const chip = document.querySelector(`.mdc-chip[data-id=${hash}]`);
-        const list = document.querySelector(`.post-list[data-id=${hash}]`);
-        if (chip) {
-          chip.classList.add("mdc-chip--selected");
-          list.classList.add("post-list--show");
-        }
-      };
-      window.addEventListener("hashchange", changeHash);
-      changeHash();
-    });
-  </script>
+        const changeHash = function() {
+          if (!location.hash) return;
+          const hash = location.hash.substring(1);
+          history.replaceState(null, "Tags", "/tags");
+          const chip = document.querySelector(`.mdc-chip[data-id=${hash}]`);
+          const list = document.querySelector(`.post-list[data-id=${hash}]`);
+          if (chip) {
+            chip.classList.add("mdc-chip--selected");
+            list.classList.add("post-list--show");
+          }
+        };
+        window.addEventListener("hashchange", changeHash);
+        changeHash();
+      });
+    </script>

@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   SimpleJekyllSearch({
-    searchInput: document.querySelector('.site-search-form__input'),
-    resultsContainer: document.querySelector('.site-search-form__result'),
-    json: '/search.json',
+    searchInput: document.querySelector(".site-search-form__input"),
+    resultsContainer: document.querySelector(".site-search-form__result"),
+    json: "/search.json",
     searchResultTemplate: `
       <li class="mdc-list-item">
         <a href={url}>
@@ -12,9 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
       </li>`,
     templateMiddleware: function(prop, value, template) {
       // console.log(prop, value, template);
-      if (prop === 'date') {
+      if (prop === "date") {
         // return new Date(value).toLocaleDateString();
-        return value.split('+')[0].replace('T', ' ').slice(0, -3);
+        return value
+          .split("+")[0]
+          .replace("T", " ")
+          .slice(0, -3);
       }
     },
     noResultsText: `
@@ -26,18 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   (function() {
-    let formResult = document.querySelector('.site-search-form__result');
+    let formResult = document.querySelector(".site-search-form__result");
     var callback = function(mutationsList, observer) {
-      console.log(new Date())
-      for(var mutation of mutationsList) {
-        if (formResult.querySelector('.js-no-search-result')) {
-          formResult.classList.add('mdc-list--non-interactive');
+      console.log(new Date());
+      for (var mutation of mutationsList) {
+        if (formResult.querySelector(".js-no-search-result")) {
+          formResult.classList.add("mdc-list--non-interactive");
         } else {
-          formResult.classList.remove('mdc-list--non-interactive');
+          formResult.classList.remove("mdc-list--non-interactive");
         }
       }
     };
     let observer = new MutationObserver(callback);
     observer.observe(formResult, { childList: true });
-  }());
+  })();
 });
