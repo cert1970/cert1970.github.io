@@ -1,13 +1,11 @@
+{% assign meta_title = page.title | append: ' | ' | append: site.title %}
+{% assign meta_url = page.url | absolute_url %}
 {% if page.layout == 'post' %}
-  {% assign meta_title = page.title | append: ' | ' | append: site.title %}
   {% assign meta_description = page.description | default: page.excerpt | strip_html | normalize_whitespace | truncatewords: 32 | escape %}
-  {% assign meta_url = page.url | absolute_url %}
   {% assign meta_image = page.image | default: site.thumbnail | absolute_url %}
   {% assign meta_type = 'article' %}
 {% else %}
-  {% assign meta_title = site.title %}
   {% assign meta_description = site.description %}
-  {% assign meta_url = site.url | absolute_url %}
   {% assign meta_image = site.thumbnail | absolute_url %}
   {% assign meta_type = 'website' %}
 {% endif %}
@@ -74,7 +72,7 @@
     <link rel="icon" type="image/png" sizes="48x48" href="{{ '/assets/images/favicon-48.png' | relative_url }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32.png' | relative_url }}">
 
-    <link rel="author" href="https://github.com/cert1970/">
+    <link rel="author" href="https://github.com/cert1970/resume/">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     <link rel="alternate" href="{{ '/feed.xml' | relative_url }}" type="application/atom+xml" title="Feed">
     <link rel="sitemap" href="{{ '/sitemap.xml' | relative_url }}" type="application/xml" title="Sitemap">
