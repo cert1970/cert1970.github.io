@@ -35,9 +35,9 @@ layout: default
                   </span>
                   <span class="mdc-list-item__text">
                     <span class="mdc-list-item__primary-text">{{ post.title }}</span>
-                    <span class="mdc-list-item__secondary-text">{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 50 | escape }}</span>
+                    <span class="mdc-list-item__secondary-text">{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 64 }}</span>
                   </span>
-                  <span class="mdc-list-item__meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%F %R" }}</time></span>
+                  <span class="mdc-list-item__meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></span>
                 </a>
               </li>
               {% endfor %}

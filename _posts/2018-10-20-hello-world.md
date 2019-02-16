@@ -1,11 +1,11 @@
 ---
-title: "hello, world"
-description: "깃허브에서 시작하는 지킬 블로그"
-date: 2018-10-20 20:39:29 +0900
+title: hello, world
+description: 깃허브에서 시작하는 지킬 블로그
+date: 2018-10-20T20:39:29+09:00
 date_modified:
 image:
-categories: [Story]
-tags: []
+categories: [daily]
+tags: [jekyll, github-pages]
 ---
 오늘은 제가 블로그를 처음 시작했던 2011년 10월 20일로부터 딱 7년째가 되는 날입니다. 마치 기념일(?)처럼 오늘 이렇게 [GitHub Pages](https://pages.github.com/)를 통해 새로운 기술 블로그를 deploy 하는 걸 의도한 건 아니었는데, 올해 5월 처음 [Jekyll](https://jekyllrb.com/) 프로젝트를 생성한 후로 이런저런 수정을 거듭하다 보니 어느덧 10월이 되어버렸네요.
 

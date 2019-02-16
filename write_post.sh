@@ -25,9 +25,9 @@ init_post() {
   echo $FILE_PATH
   cat > $FILE_PATH << EOF
 ---
-title: "$POST_TITLE"
+title: $POST_TITLE
 description:
-date: $(date +'%F %T %z')
+date: $(date --iso-8601=seconds)
 date_modified:
 image:
 categories: []
