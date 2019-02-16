@@ -88,32 +88,6 @@ $divider-color: if(
     }
   }
 
-  &-card {
-    margin: 2rem 0;
-
-    &__primary {
-      padding: 1.5rem 2rem;
-    }
-
-    &__title {
-      margin: 0.1rem 0 0.2rem;
-      @include mdc-theme-prop(color, secondary);
-    }
-
-    &__subtitle {
-      @include mdc-theme-prop(color, text-primary-on-background);
-    }
-
-    &__divider {
-      width: 40%;
-      margin: 0.4rem 0;
-    }
-
-    &__content {
-      @include mdc-theme-prop(color, text-secondary-on-background);
-    }
-  }
-
   &__content {
     margin-top: 1.5rem;
 
@@ -152,10 +126,7 @@ $divider-color: if(
       }
     }
 
-    blockquote {
-      margin: 0;
-      padding: 0 1rem;
-      border-left: 0.25rem solid $material-color-deep-purple-200;
+    em {
       @include mdc-theme-prop(color, text-secondary-on-background);
     }
 
@@ -163,7 +134,10 @@ $divider-color: if(
       font-family: "Nanum Gothic Coding", monospace;
     }
 
-    em {
+    blockquote {
+      margin: 0;
+      padding: 0 1rem;
+      border-left: 0.25rem solid $material-color-deep-purple-200;
       @include mdc-theme-prop(color, text-secondary-on-background);
     }
 
@@ -206,6 +180,7 @@ $divider-color: if(
 
     .highlighter-rouge {
       background-color: $material-color-deep-purple-50;
+      font-family: "Nanum Gothic Coding", monospace;
       color: $material-color-deep-purple-500;
     }
 
@@ -230,6 +205,32 @@ $divider-color: if(
       border-top: 1px solid $divider-color;
       color: mdc-theme-accessible-ink-color(background, hint);
     }
+  }
+}
+
+.post-card {
+  margin: 2rem 0;
+
+  &__primary {
+    padding: 1.5rem 2rem;
+  }
+
+  &__title {
+    margin: 0.1rem 0 0.2rem;
+    @include mdc-theme-prop(color, secondary);
+  }
+
+  &__subtitle {
+    @include mdc-theme-prop(color, text-primary-on-background);
+  }
+
+  &__divider {
+    width: 40%;
+    margin: 0.4rem 0;
+  }
+
+  &__content {
+    @include mdc-theme-prop(color, text-secondary-on-background);
   }
 }
 
